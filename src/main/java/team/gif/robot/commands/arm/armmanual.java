@@ -1,24 +1,24 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.arm;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import team.gif.robot.Constants;
 import team.gif.robot.Robot;
 
-public class drivetrain extends CommandBase {
-
-    public drivetrain() {
+public class armmanual extends CommandBase {
+    public armmanual() {
         super();
-        addRequirements(Robot.drivey);
+        addRequirements(Robot.arm);
     }
 
     // Called when the command is initially scheduled.
     @Override
-    public void initialize() {}
+    public void initialize() {
+    }
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.drivey.ldrive(-Robot.oi.driver.getLeftY());
-        Robot.drivey.rdrive(-Robot.oi.driver.getRightY());
+        Robot.arm.move(0.3);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

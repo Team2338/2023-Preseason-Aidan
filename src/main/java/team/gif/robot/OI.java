@@ -2,8 +2,11 @@ package team.gif.robot;
 
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
-import team.gif.robot.commands.Closecollector;
-import team.gif.robot.commands.Opencollector;
+import team.gif.robot.commands.arm.armmanualback;
+import team.gif.robot.commands.collect.Closecollector;
+import team.gif.robot.commands.collect.Opencollector;
+import team.gif.robot.commands.drive.drivetrainTank;
+import team.gif.robot.commands.arm.armmanual;
 
 public class OI {
     /*
@@ -73,6 +76,11 @@ public class OI {
     public OI() {
         dB.whileTrue(new Opencollector());
         dX.whileTrue(new Closecollector());
+        dA.whileTrue(new armmanual());
+        dY.whileTrue(new armmanualback());
+        dDPadUp.whileTrue(new drivetrainTank());
+        dDPadDown.whileTrue(new drivetrainTank());
+
 
 
         /*

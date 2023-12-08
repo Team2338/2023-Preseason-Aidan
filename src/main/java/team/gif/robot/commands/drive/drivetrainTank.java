@@ -1,14 +1,14 @@
-package team.gif.robot.commands;
+package team.gif.robot.commands.drive;
+
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import team.gif.robot.Robot;
 
-public class Closecollector extends CommandBase {
+public class drivetrainTank extends CommandBase {
 
-    public Closecollector() {
+    public drivetrainTank() {
         super();
-        addRequirements(Robot.motorInstance);
+        addRequirements(Robot.drivey);
     }
-
 
     // Called when the command is initially scheduled.
     @Override
@@ -17,7 +17,8 @@ public class Closecollector extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.motorInstance.move(-0.2);
+        Robot.drivey.ldrive(-Robot.oi.driver.getLeftY());
+        Robot.drivey.rdrive(Robot.oi.driver.getRightY());
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -28,7 +29,5 @@ public class Closecollector extends CommandBase {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {
-        Robot.motorInstance.move(0.0);
-    }
+    public void end(boolean interrupted) {}
 }

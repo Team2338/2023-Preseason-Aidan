@@ -5,7 +5,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class Collectormotor extends SubsystemBase {
-  public TalonSRX motor = new TalonSRX(0);
+  public TalonSRX motor = new TalonSRX(6);
 
   public Collectormotor(){}
 
