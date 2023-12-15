@@ -5,7 +5,6 @@
 package team.gif.robot;
 
 import edu.wpi.first.wpilibj.RobotBase;
-import team.gif.robot.subsystems.driver.Drivetrain;
 
 /**
  * Do NOT add any static variables to this class, or any initialization at all. Unless you know what

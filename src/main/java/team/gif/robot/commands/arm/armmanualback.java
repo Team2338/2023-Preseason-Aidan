@@ -17,7 +17,7 @@ public class armmanualback extends CommandBase {
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
     public void execute() {
-        Robot.arm.move(-0.3);
+        Robot.arm.move(-0.31);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.
@@ -28,5 +28,7 @@ public class armmanualback extends CommandBase {
 
     // Called when the command ends or is interrupted.
     @Override
-    public void end(boolean interrupted) {}
+    public void end(boolean interrupted) {
+        Robot.arm.move(0);
+    }
 }

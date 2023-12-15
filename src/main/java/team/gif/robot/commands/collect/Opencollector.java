@@ -16,7 +16,8 @@ public class Opencollector extends CommandBase {
 
     // Called every time the scheduler runs (~20ms) while the command is scheduled
     @Override
-    public void execute() {Robot.motorInstance.move(0.3);
+    public void execute() {
+        Robot.motorInstance.move(0.23);
     }
 
     // Return true when the command should end, false if it should continue. Runs every ~20ms.

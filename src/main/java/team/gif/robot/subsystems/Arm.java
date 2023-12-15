@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package team.gif.robot.subsystems.driver;
+package team.gif.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -19,22 +19,31 @@ import team.gif.robot.RobotMap;
 
 public class Arm extends SubsystemBase {
 
-  public TalonSRX armmotor = new TalonSRX(0);
+  public WPI_TalonSRX armmotor = new WPI_TalonSRX(9);
+
   public Arm() {
     armmotor.configFactoryDefault();
     armmotor.setNeutralMode(NeutralMode.Brake);
-    armmotor.setSensorPhase(true);
-    armmotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
-    armmotor.setInverted(true);
-    armmotor.configPeakOutputForward(.5);
-    armmotor.configPeakOutputReverse(-.5);
+
+//    armmotor.setSensorPhase(true);
+//    armmotor.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
+
   }
 
-    public void move(double percentPower){
-      armmotor.set(TalonSRXControlMode.PercentOutput,percentPower);
-    }
-
-  public void setElevatorPos(double pos) {
-    armmotor.set(ControlMode.Position, pos);}
+  public void move(double percentPower) {
+    armmotor.set(percentPower);
   }
+
+  public void setArmrPos(double pos) {
+    armmotor.set(ControlMode.Position, pos);
+  }
+
+  public double getArmPos() {
+    return armmotor.getSelectedSensorPosition();
+  }
+
+  public void zeroEncoder() {
+    armmotor.setSelectedSensorPosition(0);
+  }
+}
 

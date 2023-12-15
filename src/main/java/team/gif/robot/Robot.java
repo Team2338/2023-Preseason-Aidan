@@ -9,9 +9,9 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 import team.gif.robot.commands.autos.driveOverLine;
 import team.gif.robot.commands.drive.drivetrainTank;
-import team.gif.robot.subsystems.driver.Arm;
-import team.gif.robot.subsystems.driver.Collectormotor;
-import team.gif.robot.subsystems.driver.Drivetrain;
+import team.gif.robot.subsystems.Arm;
+import team.gif.robot.subsystems.Collectormotor;
+import team.gif.robot.subsystems.Drivetrain;
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -21,7 +21,6 @@ import team.gif.robot.subsystems.driver.Drivetrain;
  */
 public class Robot extends TimedRobot {
   private static Command autonomousCommand;
-
   public static Collectormotor motorInstance;
   public static Drivetrain drivey;
   private RobotContainer robotContainer;
@@ -41,14 +40,17 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
+
     drivey = new Drivetrain();
     DrivetrainTank = new drivetrainTank();
     drivey.setDefaultCommand(DrivetrainTank);
+
     motorInstance = new Collectormotor();
     robotContainer = new RobotContainer();
-    oi = new OI();
     uiSmartDashboard = new UiSmartDashboard();
     arm = new Arm();
+    oi = new OI();
+
 
   }
 
